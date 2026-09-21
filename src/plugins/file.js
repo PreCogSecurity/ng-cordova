@@ -20,6 +20,13 @@ angular.module('ngCordova.plugins.file', [])
 
   .provider('$cordovaFile', [function () {
 
+    function CordovaError(code, message) {
+      this.code = code;
+      this.message = message;
+    }
+    CordovaError.prototype = Object.create(Error.prototype);
+    CordovaError.prototype.constructor = CordovaError;
+
     this.$get = ['$q', '$window', '$cordovaFileError', function ($q, $window, $cordovaFileError) {
 
       return {
@@ -38,7 +45,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(dir))) {
-            q.reject('directory cannot start with \/');
+            q.reject(new CordovaError(8, 'directory cannot start with \/'));
           }
 
           try {
@@ -65,7 +72,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
-            q.reject('directory cannot start with \/');
+            q.reject(new CordovaError(8, 'directory cannot start with \/'));
           }
 
           try {
@@ -92,7 +99,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(dirName))) {
-            q.reject('directory cannot start with \/');
+            q.reject(new CordovaError(8, 'directory cannot start with \/'));
           }
 
           replaceBool = replaceBool ? false : true;
@@ -126,7 +133,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(fileName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           replaceBool = replaceBool ? false : true;
@@ -159,7 +166,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(dirName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -190,7 +197,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(fileName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -221,7 +228,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(dirName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -252,7 +259,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(fileName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           replaceBool = replaceBool ? false : true;
@@ -308,7 +315,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(fileName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -351,7 +358,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -392,7 +399,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -431,7 +438,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -470,7 +477,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -511,7 +518,7 @@ angular.module('ngCordova.plugins.file', [])
           newFileName = newFileName || fileName;
 
           if ((/^\//.test(fileName)) || (/^\//.test(newFileName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -544,7 +551,7 @@ angular.module('ngCordova.plugins.file', [])
           newDirName = newDirName || dirName;
 
           if (/^\//.test(dirName) || (/^\//.test(newDirName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -577,7 +584,7 @@ angular.module('ngCordova.plugins.file', [])
           newDirName = newDirName || dirName;
 
           if (/^\//.test(dirName) || (/^\//.test(newDirName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -616,7 +623,7 @@ angular.module('ngCordova.plugins.file', [])
           newFileName = newFileName || fileName;
 
           if ((/^\//.test(fileName))) {
-            q.reject('file-name cannot start with \/');
+            q.reject(new CordovaError(8, 'file-name cannot start with \/'));
           }
 
           try {
@@ -653,7 +660,7 @@ angular.module('ngCordova.plugins.file', [])
           var q = $q.defer();
 
           if ((/^\//.test(file))) {
-            q.reject('directory cannot start with \/');
+            q.reject(new CordovaError(8, 'directory cannot start with \/'));
           }
 
           try {
