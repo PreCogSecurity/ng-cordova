@@ -106,6 +106,20 @@ $ bower install ngCordova
 
 `* official Apache Cordova Plugin`
 
+## Build & Testing
+
+To install dependencies and run the test suite / linter locally:
+
+```bash
+npm install
+npm test
+```
+
+## Project Maintenance Status
+
+* ngCordova is a legacy AngularJS / Apache Cordova integration library. 
+* Maintained under PreCog Security datafactor quality standards for reference, security hardening, and archival compatibility.
+
 ## Authors
 
 #### Max Lynch
